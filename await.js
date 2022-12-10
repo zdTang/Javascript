@@ -1,14 +1,16 @@
-(async ()=>{
-    const asyncFn = async () => {
-        return 5;
+var name="mike";
+(async (n)=>{
+    let myname=n;
+    const asyncFn = async (m) => {
+        return m;
        }
-       let result=await asyncFn();
+       let result=await asyncFn(myname);
        console.log(result);
     
        console.log("ok inside");
        
        // 5
-})();
+})(name);
 
 console.log("ok outside");
 
