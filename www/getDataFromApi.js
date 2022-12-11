@@ -5,15 +5,32 @@ const deleteButton = document.getElementById("delete");
 const contentArea = document.getElementById("content");
 
 getButton.addEventListener("click", function () {
-  getData("/api", { name: "mike" }).then((x) => console.log(x));
-  contentArea.innerHTML = "get";
+  getData("/api", { name: "mike" })
+  .then((x) => {
+    let {username,key}=x.data;
+    contentArea.innerHTML = username+key.toString()})
+  .catch(error=>console.log(error));
+  ;
 });
-putButton.addEventListener("click", function () {
-  contentArea.innerHTML = "put";
-});
+
 postButton.addEventListener("click", function () {
-  contentArea.innerHTML = "post";
+  postData("/api", { name: "mike" })
+  .then((x) => {
+    console.log(x.data);
+    //{username,key} = x.data;
+    contentArea.innerHTML = username+key.toString()})
+  .catch(error=>console.log(error));
 });
+
+putButton.addEventListener("click", function () {
+  putData("/api", { name: "mike" })
+  .then((x) => {contentArea.innerHTML = x.data})
+  .catch(error=>console.log(error));
+});
+
+
 deleteButton.addEventListener("click", function () {
-  contentArea.innerHTML = "delete";
+  deleteData("/api", { name: "mike" })
+  .then((x) => {contentArea.innerHTML = x.data})
+  .catch(error=>console.log(error));
 });
