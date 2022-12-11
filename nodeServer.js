@@ -7,7 +7,13 @@ app.use(express.json()); // middleware for json
 app.get("/api", (req, res) => {
   console.log(req.query);
   //res.send("Success");
-  res.json({ username: 'Mike',key:123 })
+  let {name}=req.query;
+  if(name){
+    res.json({ username: 'Mike',key:123 })
+  }
+  else{
+    res.json([{ username: 'Mike',key:123 },{ username: 'Bob',key:456}])
+  }
 });
 
 app.post("/api", (req, res) => {
