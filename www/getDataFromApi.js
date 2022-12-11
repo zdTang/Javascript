@@ -24,11 +24,11 @@ getAllButton.addEventListener("click", function () {
 });
 
 postButton.addEventListener("click", function () {
-  postData("/api", { name: "mike" })
+  postData("/api", { name: "mike",age:80,title:"developer" })
   .then((x) => {
     console.log(x.data);
-    //{username,key} = x.data;
-    contentArea.innerHTML = username+key.toString()})
+    let {state} = x.data;
+    contentArea.innerHTML = state})
   .catch(error=>console.log(error));
 });
 

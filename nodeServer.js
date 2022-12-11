@@ -18,7 +18,7 @@ app.get("/api", (req, res) => {
 
 app.post("/api", (req, res) => {
   console.log(req.body); // your JSON
-  res.send(req.body); // echo the result back
+  res.json({state:"success"}); // echo the result back
 });
 
 app.put("/api", (req, res) => {
