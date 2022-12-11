@@ -43,7 +43,10 @@ putButton.addEventListener("click", function () {
 
 
 deleteButton.addEventListener("click", function () {
-  deleteData("/api", { name: "mike" })
-  .then((x) => {contentArea.innerHTML = x.data})
+  deleteData("/api", { id: 99 })
+  .then((x) => {
+    console.log(x.data);
+    let {state} = x.data;
+    contentArea.innerHTML = state})
   .catch(error=>console.log(error));
 });

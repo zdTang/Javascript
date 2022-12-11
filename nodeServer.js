@@ -18,16 +18,18 @@ app.get("/api", (req, res) => {
 
 app.post("/api", (req, res) => {
   console.log(req.body); // your JSON
-  res.json({state:"success"}); // echo the result back
+  res.json({state:"success"}); 
 });
 
 app.put("/api", (req, res) => {
   console.log(req.body); // your JSON
-  res.json({state:"success"}); // echo the result back
+  res.json({state:"success"}); 
 });
 
 app.delete("/api", (req, res) => {
-  return res.send("Received a DELETE HTTP method");
+  console.log(req.body); // {}
+  console.log(req.query); // for delete, the parameter is here!
+  res.json({state:"success"}); 
 });
 
 app.listen(8888, () => console.log(`Example app listening on port 8888!`));
