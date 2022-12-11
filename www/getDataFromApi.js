@@ -33,8 +33,11 @@ postButton.addEventListener("click", function () {
 });
 
 putButton.addEventListener("click", function () {
-  putData("/api", { name: "mike" })
-  .then((x) => {contentArea.innerHTML = x.data})
+  putData("/api", { name: "mike",age:80,title:"developer" })
+  .then((x) => {
+    console.log(x.data);
+    let {state} = x.data;
+    contentArea.innerHTML = state})
   .catch(error=>console.log(error));
 });
 

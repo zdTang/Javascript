@@ -22,7 +22,8 @@ app.post("/api", (req, res) => {
 });
 
 app.put("/api", (req, res) => {
-  return res.send("Received a PUT HTTP method");
+  console.log(req.body); // your JSON
+  res.json({state:"success"}); // echo the result back
 });
 
 app.delete("/api", (req, res) => {
