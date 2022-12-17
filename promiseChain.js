@@ -12,7 +12,7 @@ myPromise
 
 function handleFulfilledA(data) {
   console.log(data);
-  return 100;
+  throw "early error";
 }
 function handleFulfilledB(data) {
   console.log(data);
@@ -27,6 +27,4 @@ function handleRejectedAny(data) {
 }
 
 //foo
-//100
-//200
-//error
+//early error
